@@ -1,1 +1,1 @@
-# Algorithm_template
+# 记录c++常用算法模板

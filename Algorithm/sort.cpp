@@ -1,5 +1,5 @@
 #include<vector>
-
+using namespace std;
 //快速排序
 void QuickSort(vector<int>& nums)
 {
@@ -65,7 +65,7 @@ void merge(vector<int>& nums, int start, int mid, int end)
     {
         tmp[k++]=nums[j++];
     }
-    for(int t=0;<tmp.size();t++)
+    for(int t=0;t<tmp.size();t++)
     {
         nums[start+t]=tmp[t];
     }
@@ -74,8 +74,11 @@ void merge(vector<int>& nums, int start, int mid, int end)
 //堆排序
 void HeapSort(vector<int> nums)
 {
-    buildMaxHeap(nums);
     int len=nums.size();
+    for(int i=len/2-1;i>=0;i--)
+    {
+        heapHelper(nums, i, len);
+    }
     for(int i=nums.size();i>=0;i--)
     {
         swap(nums[i], nums[0]);
@@ -84,14 +87,6 @@ void HeapSort(vector<int> nums)
     }
 }
 
-void buildMaxHeap(vector<int>& nums)
-{
-    int length=nums.size();
-    for(int i=length/2;i>=0;i--)
-    {
-        heapHelper(nums, i, length);
-    }
-}
 
 void heapHelper(vector<int>& nums, int i, int length)
 {
@@ -112,3 +107,4 @@ void heapHelper(vector<int>& nums, int i, int length)
         heapHelper(nums, largest, length);
     }
 }
+
